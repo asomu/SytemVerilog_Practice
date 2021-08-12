@@ -2,8 +2,8 @@
 program ckrndprpt();
 
     class Packet;
-        bit[7:0] min, max;
-        rand bit[7:0] data;
+        static bit[7:0] min, max;
+        static rand bit[7:0] data;
         bit parity;
         constraint c{
             data >= min;
@@ -11,8 +11,8 @@ program ckrndprpt();
         }
 
         function void pre_randomize();
-            this.min = 10;
-            this.max = 20;
+            this.min += 10;
+            this.max += 20;
         endfunction
 
         function void post_randomize();

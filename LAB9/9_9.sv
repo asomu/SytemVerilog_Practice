@@ -3,7 +3,7 @@
 program ckrndsiz();
     class Packet;
         rand bit [7:0] data[];
-        contraint c{
+        constraint c{
             data.size inside {[3:8]};
             foreach (data[i]) data[i] == i;
         }
